@@ -1,0 +1,19 @@
+html{
+    background: #e1701a #f7a440 #f6dcbf #aaaaaa rgb(236, 212, 212)smoke rgb(155, 155, 151) #f6dcbf;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    background-image: url(/ProjectWeb/public/img/bts.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover; 
+    animation: 0.4s;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 0 ;
+}
+
+html::after{
+    content: "";
+    width: 5px;
+    color: black;
+}
