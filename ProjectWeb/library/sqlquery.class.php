@@ -386,6 +386,7 @@ class SQLQuery {
 		$this->_hMABTM = null;
 		$this->_page = null;
 		$this->_order = null;
+		$this->id = null;
 	}
 
 	/** Pagination Count **/

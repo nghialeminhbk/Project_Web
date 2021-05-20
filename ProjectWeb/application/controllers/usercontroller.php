@@ -1,9 +1,15 @@
 <?php
 session_start();
 class UserController extends VanillaController {
-	
-	function beforeAction () {
+	private $userId = null;
 
+	function beforeAction () {
+        if(isset($_SESSION['user'])){
+            $user = $_SESSION['user'];
+            $this->User->where('username', $user);
+            $rs = $this->User->search();
+            $this->userId = $rs[0]['User']['id'];
+        }
 	}
 
     function login(){
@@ -66,7 +72,18 @@ class UserController extends VanillaController {
             // var_dump($musics);
             // echo "</pre>";
             $this->set('musics', $musics['Music']);
+            $this->set('userId', $userId);
         }
+    }
+
+    function delFavorite($idMusic = null){
+        $this->doNotRenderHeader = 1;
+        $rs = $this->User->custom("DELETE FROM music_user WHERE user_id = $this->userId AND music_id = $idMusic");
+    }
+
+    function addFavorite($idMusic = null){
+        $this->doNotRenderHeader = 1;
+        $rs = $this->User->custom("INSERT INTO music_user VALUES (null, '$idMusic', '$this->userId')");
     }
 
     function logout(){
@@ -74,6 +91,7 @@ class UserController extends VanillaController {
         session_destroy();
         header("location: http://localhost:8080/ProjectWeb/home");
     }
+
 
 
     function afterAction() {

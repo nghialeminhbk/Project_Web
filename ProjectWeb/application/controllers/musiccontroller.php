@@ -30,12 +30,19 @@ class MusicController extends VanillaController {
             $this->Music->id = $musicId;
             $this->Music->showHasOne();
             $music = $this->Music->search();
+            $cateId = $music['Category']['id'];
             // echo "<pre>";
             // var_dump($music);
             // echo "</pre>";
+            $this->Music->where('category_id', $cateId);
+            $musics = $this->Music->search();
+            // echo "<pre>";
+            // var_dump($musics);
+            // echo "</pre>";
             $this->set('music', $music);
+            $this->set('musics', $musics);
             $this->set('cateId', $music['Category']['id']);
-            $this->set('titleCate', $music['Category']['name']);
+            $this->set('title', $music['Category']['name']);
         }else{
             $music = $this->Music->search();
             // echo "<pre>";
@@ -69,6 +76,7 @@ class MusicController extends VanillaController {
         $source = $_POST['source']??'';
         $category_id = $_POST['category_id']??'';
         $title = $_POST['title']!=''?$_POST['title']:'Lời bài hát hiện chưa được cập nhật!';
+        // var_dump($name, $artist, $singer, $source, $category_id, $title);
         if(isset($_POST['submit'])){
             $rs = $this->Music->custom("INSERT INTO music VALUES (null, '$name', '$artist', '$source', '$title', '$singer', '$category_id')");
             if($rs[0]){

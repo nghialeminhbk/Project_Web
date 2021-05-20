@@ -36,6 +36,21 @@
             xmlhttp.open("GET",url, true);
             xmlhttp.send();
         }
+        const searchbar = document.getElementById('searchHomePage');
+
+        function disvisible(){
+            searchbar.value = "";
+            document.getElementById('searchMusic').setAttribute('style','display: none');
+        }
+
+        function reset(str){
+            if(str == ""){
+              document.getElementById('searchMusic').setAttribute('style','display: none');
+              return;
+            }else{
+                return;
+            }
+        }
 
         function sendData(url, data = []){
             var xmlhttp = new XMLHttpRequest();
@@ -82,6 +97,7 @@
     <script>
        <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkTK.js');?>
        <?php include(ROOT.DS.'public'.DS.'js'.DS.'addListFav.js');?>
+       <?php include(ROOT.DS.'public'.DS.'js'.DS.'delMusicFromFav.js');?>
     </script>
 </body>
 </html>

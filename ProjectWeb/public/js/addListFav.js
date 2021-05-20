@@ -1,13 +1,12 @@
 
-let turn = 0;
+
 function addListFav(idMusic){
-    var e = document.getElementById(idMusic);
-    if(turn == 0){
-        turn = 1;
-        e.className = e.className.replace("fas ", "far ");
-    }else{
-        turn = 0;
-        e.className = e.className.replace("far ", "fas ");
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            
+        }
     }
-    console.log(turn);
+    xmlhttp.open("GET", 'http://localhost:8080/ProjectWeb/user/addFavorite/' + idMusic, true);
+    xmlhttp.send();
 }

@@ -23,7 +23,7 @@
             <i class="iconHeader fa fa-bars" id="iconMenu" onclick="showMenu()"></i>
             <a href="http://localhost:8080/ProjectWeb/home" id="logo" class="viewLogo"><i class="fas fa-headphones-alt"></i> ENCHANTIST</a>
             <div id="viewSearchID" class="viewSearch">
-                <input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ" autocomplete="off" onkeyup="search(this.value)">
+                <input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ" autocomplete="off" onkeyup="search(this.value)" onchange="reset(this.value)">
                 <ol id="searchMusic">
                 </ol>
                 <div class="div-iconsearch">
