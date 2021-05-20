@@ -1,18 +1,23 @@
-<?php $count = 1;?>
-<h2><?=$title?></h2>
-<div id="list-music">
-    <?php foreach($musics as $music):?>
-        <div class="music-group">
-            <div class="left-music">
-                <p class="sttMusic"><?=$count++?>.</p>
-                <div class="des-music">
-                <p class="name"> <a href="http://localhost:8080/ProjectWeb/music/view/<?=$music['Music']['id']?>/<?=$music['Music']['category_id']?>"><?=$music['Music']['name']?></a></p>
-                    <p class="singer"><?=$music['Music']['singer']?></p>
+<div id="categoryList">
+    <?php $count = 1;?>
+    <h2><?=$title?></h2>
+    <div id="list-music">
+        <?php foreach($musics as $music):?>
+            <div class="music-group">
+                <div class="left-music">
+                    <p class="sttMusic"><?=$count++?>.</p>
+                    <div class="des-music">
+                    <p class="name"> <a onclick="load('http://localhost:8080/ProjectWeb/music/view/<?=$music['Music']['id']?>', 'main'), load('http://localhost:8080/ProjectWeb/category/view/1/2', 'right-page-music')"><?=$music['Music']['name']?></a></p>
+                        <p class="singer"><?=$music['Music']['singer']?></p>
+                    </div>
+                </div>
+                <div class="right-music">
+                    <i class="far fa-heart"></i>
                 </div>
             </div>
-            <div class="right-music">
-                <i class="far fa-heart"></i>
-            </div>
+        <?php endforeach?>
+        <div id="pagination">
+            <?php include(ROOT . DS . 'application' . DS . 'views' . DS . 'pagination.php');?>
         </div>
-    <?php endforeach?>
+    </div>
 </div>

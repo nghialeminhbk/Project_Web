@@ -24,8 +24,7 @@
     //     e.setAttribute('style', "display: none");
     // }
 </script>
-<script>    
-        const main = document.getElementById('main');
+<script>   
         function load(url, element){
             var xmlhttp = new XMLHttpRequest();
             var e = document.getElementById(element);
@@ -58,25 +57,6 @@
         }
     </script>
     <script>
-        function del(id, table, url){
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                    var res = this.responseText;
-                    console.log(res);
-                    if(res == '.1'){
-                        load(url);
-                    }else{
-                        alert("Xóa thất bại !");
-                    }
-                }
-            }
-            xmlhttp.open("GET", 'http://localhost:8080/ProjectMusicWeb/admin/delete/'+id+'/'+table, true);
-            xmlhttp.send();
-        }
-    </script>
-
-    <script>
         function search(search){
             setTimeout(() => {
                 console.log(search);
@@ -99,6 +79,9 @@
             }, 300);
         }
     </script>
-
+    <script>
+       <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkTK.js');?>
+       <?php include(ROOT.DS.'public'.DS.'js'.DS.'addListFav.js');?>
+    </script>
 </body>
 </html>

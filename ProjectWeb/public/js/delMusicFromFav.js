@@ -1,0 +1,3 @@
+function delFromFav(idMusic, idUser){
+    
+}

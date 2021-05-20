@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class CategoryController extends VanillaController {
 	
 	function beforeAction () {
@@ -19,18 +19,23 @@ class CategoryController extends VanillaController {
         // echo "</pre>";
 	}
 
-    function view($cateId = null, $nameCate = null){
+    function view($cateId = null, $nameCate = null, $page = 1){
         $this->doNotRenderHeader = 1;
         $title = $nameCate;
         if(isset($cateId)){
             $this->Category->showHasMany();
             $this->Category->id = $cateId;
+            $this->Category->setLimit(3);
+            $this->Category->setPage($page);
             $musics = $this->Category->search();
+            $total = $this->Category->totalPages();
             // echo "<pre>";
             // var_dump($musics);
             // echo "</pre>";
             $this->set('musics', $musics['Music']);
             $this->set('title', $title);
+            $this->set('total', $total);
+            $this->set('curr_page', $page);
         }
     }
 

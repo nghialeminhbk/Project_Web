@@ -91,7 +91,7 @@ class SQLQuery {
 		if ($this->_hO == 1 && isset($this->hasOne)) {
 			
 			foreach ($this->hasOne as $alias => $model) {
-				$table = strtolower($inflect->pluralize($model));
+				$table = strtolower($model);
 				$singularAlias = strtolower($alias);
 				$from .= 'LEFT JOIN  '.$table.'  as  '.$alias.'  ';
 				$from .= 'ON  '.$this->_model.'.'.$singularAlias.'_id  =  '.$alias.'.id   ';
@@ -192,8 +192,8 @@ class SQLQuery {
 						$conditionsChild = '';
 						$fromChild = '';
 
-						$tableChild = strtolower($inflect->pluralize($tableChild));
-						$pluralAliasChild = strtolower($inflect->pluralize($aliasChild));
+						$tableChild = strtolower($tableChild);
+						$pluralAliasChild = strtolower($aliasChild);
 						$singularAliasChild = strtolower($aliasChild);
 
 						$sortTables = array($this->_table,$pluralAliasChild);
@@ -208,9 +208,11 @@ class SQLQuery {
 						$fromChild = substr($fromChild,0,-1);
 
 						$queryChild =  'SELECT * FROM '.$fromChild.' WHERE '.$conditionsChild;	
-						#echo '<!--'.$queryChild.'-->';
+						
 						$resultChild = mysqli_query($this->_dbHandle, $queryChild);
-				
+						// echo "<pre>";
+						// var_dump($queryChild);
+						// echo "</pre>";
 						$tableChild = array();
 						$fieldChild = array();
 						$tempResultsChild = array();
@@ -255,9 +257,8 @@ class SQLQuery {
 		}
 
 	}
-
+	
     /** Custom SQL Query **/
-
 	function custom($query) {
 
 		global $inflect;
@@ -285,6 +286,8 @@ class SQLQuery {
 					}
 			}
 			mysqli_free_result($this->_result);
+		}else{
+			array_push($result,$this->_result);
 		}	
 		$this->clear();
 		return($result);

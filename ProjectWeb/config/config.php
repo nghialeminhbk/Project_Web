@@ -14,3 +14,5 @@ define('BASE_PATH','http://localhost:8080/ProjectWeb');
 
 define('BASE_SOURCE_MUSIC', 'https://www.nhaccuatui.com/mh/auto/');
 define('PAGINATE_LIMIT', '5');
+
+$GLOBALS['listFav'] = array();

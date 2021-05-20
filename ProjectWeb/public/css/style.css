@@ -1,19 +1,389 @@
-html{
-    background: #e1701a #f7a440 #f6dcbf #aaaaaa rgb(236, 212, 212)smoke rgb(155, 155, 151) #f6dcbf;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    background-image: url(/ProjectWeb/public/img/bts.jpg);
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover; 
-    animation: 0.4s;
-    transition: all 0.3s;
-    box-shadow: 0 0 0 0 ;
+
+/* default  */
+html, header, body, p, ol, ul, hr{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+}
+h2{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+a, a:visited{
+    cursor: pointer;
+    text-decoration: none;
+}
+a:visited{
+    color: white;
+}
+a:hover{
+    color:  rgb(255, 165, 0);
+}
+ol{
+    list-style: none;
+}
+i{
+    color: red;
+    cursor: pointer;
+}
+i:hover{
+    transform: scale(1.2);
+}
+#main{
+    background: #f6dcbf;
+    margin-top: 50px;
 }
 
-html::after{
-    content: "";
-    width: 5px;
+.body-form{
+    background: white;
+    box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
+    padding: 10px;
+}
+
+.container{
+    margin: 0 auto;
+    width: 60%;
+    padding: 20px 0;
+}
+/* header  */
+header{
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.top_page{
+    background: #e1701a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 99%;
+    height: 100%;
+    padding: 0 10px;
+    color: white;
+}
+
+.leftHeader, .rightHeader{
+    width: 50%;
+}
+/* right header  */
+#iconMenu, #searchMusic{
+    display: none;
+}
+
+.rightHeader{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+
+.rightHeader a{
+    padding: 12px 15px;
+}
+
+.theLoai{
+    /* animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    animation-name: scale-up-ver-top; */
+    list-style-type: none;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    margin-top: 18px;
+    margin-left: -30px;
+    box-sizing: content-box;
+    min-width: 80px;
+    background: #e1701a;
+    color: white;
+}
+
+.theLoaiID{
+    transition: all .3s;
+}
+
+.theLoaiID:hover > #theLoai{
+    display: flex;
+}
+
+.theLoai hr{
+    width: 99%;
+}
+
+.theLoai li{
+    text-align: center;
+    padding: 5px 10px;
+}
+.accountID{
+    padding: 12px 15px;
+    cursor: pointer;
+}
+.accountID:hover{
+    color: rgb(255, 165, 0);
+}
+.account{
+    list-style-type: none;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    margin-top: 18px;
+    margin-left: -80px;
+    box-sizing: content-box;
+    min-width: 100px;
+    background: #e1701a;
+    color: white;
+}
+
+.account li{
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.accountID:hover > .account{
+    display: flex;
+}   
+
+/* left header  */
+.leftHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#logo{
+    color: white;
+    font-weight: 700;
+}
+.leftHeader a, .viewSearch{
+    padding: 12px 15px;
+}
+#searchHomePage{
+    height: 25px;
+    width: 80%;
+}
+.viewSearch{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+    position: relative;
+}
+#iconSearch{
+    color: orange;
+    border: none;
+}
+#searchMusic{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 1px;
+    /* box-sizing: content-box; */
+    top: 38px;
+    width: 75%;
+    min-width: 80px;
+    background: white;
+    box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
+    color: #000;
+    /* height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden; */
+}
+#searchMusic .des-music{
+    border-bottom: 1px solid #aaaaaa;
+    padding: 10px;
+}
+#searchMusic .des-music .name a{
+    padding: 0;
+}
+.div-iconsearch{
+    height: 23px;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 5px;
+}
+/* main-home */
+/* banner */
+#banner{
+    background-image: url(/ProjectWeb/public/img/bts.jpg);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+#description{
+    padding-top: 170px;
+    padding-left: 55%;
+    padding-right: 30px;
+}
+
+#description p{
+    font-style: italic;
+}
+/* main-home */
+#main-home{
+    display: grid;
+    grid-template-columns: 0.75fr 1fr 1fr;
+    grid-column-gap: 10px;
+    background: #f6dcbf;
+}
+#left-main, #center-main, #right-main{
+    height: 100vh;
+}
+/* center-main  */
+
+#list-music{
+    background: white;
+    box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
+    padding: 10px 30px;
+    border: none;
+}
+
+#pagination{
+    padding: 15px 0 0 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagination a{
+    padding: 0 10px; 
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.music-group{
+    border-bottom: solid 1px rgb(155, 155, 151);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.left-music{
+    display: flex;
+    flex: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-music p{
+    padding: 5px 10px;
+}
+.des-music .name, .sttMusic{
+    font-weight: 700; 
+}
+
+.des-music .name{
+    cursor: pointer;
+}
+.des-music .name a:hover{
+    color: #e1701a;
+}
+.des-music .singer{
+    font-style: italic;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+.name a{
     color: black;
 }
+/* right-main  */
+
+/* footer  */
+
+footer{
+    background: #f7a440; 
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 0px 10px;
+    font-size: 12px;
+}
+
+#left-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#left-footer i{
+    padding: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#left-footer i:hover{
+    color: #e1701a;
+}
+#right-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* page-music  */
+#page-music{
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.musicFrame, .inforDetailMusic{
+    background: white;
+    box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
+    padding: 10px 30px;
+    border: none;
+}
+
+.musicFrame{
+    margin-bottom: 30px;
+}
+
+.left-page-music, .right-page-music{
+    padding: 30px 40px;
+}
+
+iframe{
+    padding: 30px 0;
+}
+.inforMusic{
+    border-bottom: 1px solid rgb(112, 112, 110);
+}
+
+.inforMusic, .loiBaiHat{
+    padding: 20px 0;
+}
+
+/* sign up, login  */
+.signup-container{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-gap: 10px;
+}
+
+.signup-container h2{
+    margin: 0;
+    padding: 0px 0 10px 0px;
+}
+
+/* post-music  */
+
+
