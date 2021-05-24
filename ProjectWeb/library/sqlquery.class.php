@@ -126,7 +126,9 @@ class SQLQuery {
 		$field = array();
 		$tempResults = array();
 		$numOfFields = mysqli_num_fields($this->_result);
+		// echo "<pre>";
 		// var_dump($this->_result);
+		// echo "</pre>";
 		// var_dump($numOfFields);
 		for ($i = 0; $i < $numOfFields; ++$i) {
 		    array_push($table,mysqli_fetch_field_direct($this->_result, $i)->table);
@@ -153,9 +155,13 @@ class SQLQuery {
 						$fromChild .= ' '.$tableChild.'  as  '.$aliasChild.' ';
 						
 						$conditionsChild .= ' '.$aliasChild.' . '.strtolower($this->_model).'_id  = \''.$tempResults[$this->_model]['id'].'\'';
+						
+						if (isset($this->_page)) {
+							$offset = ($this->_page-1)*$this->_limit;
+							$conditionsChild .= ' LIMIT '.$this->_limit.' OFFSET '.$offset;
+						}
 	
 						$queryChild =  'SELECT * FROM '.$fromChild.' WHERE '.$conditionsChild;
-						// var_dump($queryChild);	
 						#echo '<!--'.$queryChild.'-->';
 						$resultChild = mysqli_query($this->_dbHandle, $queryChild);
 				
@@ -210,9 +216,7 @@ class SQLQuery {
 						$queryChild =  'SELECT * FROM '.$fromChild.' WHERE '.$conditionsChild;	
 						
 						$resultChild = mysqli_query($this->_dbHandle, $queryChild);
-						// echo "<pre>";
-						// var_dump($queryChild);
-						// echo "</pre>";
+						
 						$tableChild = array();
 						$fieldChild = array();
 						$tempResultsChild = array();

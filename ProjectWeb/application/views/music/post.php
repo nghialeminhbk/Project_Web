@@ -1,8 +1,8 @@
-<div id="main">
+<main id="main">
     <div class="container post-container signup-container">
         <div>
             <h2>Đăng bài hát</h2>
-            <form action="http://localhost:8080/ProjectWeb/music/post" method="POST">
+            <form action="http://localhost:8080/ProjectWeb/music/post" method="POST" id="form-post">
                 <div class="body-form">
                     <table>
                         <tr>
@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <td>Lời bài hát</td>
-                            <td><textarea name="title" id="" cols="30" rows="10"></textarea></td>
+                            <td><textarea form="form-post" name="title" id="" cols="30" rows="10"></textarea></td>
                         </tr>
                     </table>
                     <p class="notification">
@@ -52,4 +52,4 @@
             </div>
         </div>
     </div>
-</div>
+</main>

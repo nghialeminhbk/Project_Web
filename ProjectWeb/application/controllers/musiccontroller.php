@@ -1,9 +1,18 @@
 <?php
 session_start();
 class MusicController extends VanillaController {
-	
+	private $userId = null;
 	function beforeAction () {
-        
+        if(isset($_SESSION['user'])){
+            $user = $_SESSION['user'];
+            $rs = $this->Music->custom("SELECT * FROM user WHERE username = '$user'");
+            $this->userId = $rs[0]['User']['id'];
+            $music = $this->Music->custom("SELECT * FROM music, music_user, user WHERE music.id = music_user.music_id AND music_user.user_id = user.id AND user.username = '$user'");
+            $_SESSION['favorite'] = array_column(array_column($music, 'Music'), 'id');
+            // echo "<pre>";
+            // var_dump($this->userId);
+            // echo "</pre>";
+        }
 	}
 	
 	
@@ -12,7 +21,8 @@ class MusicController extends VanillaController {
 		// $this->Category->showHasOne();
 		// $this->Category->showHasMany();
         $this->doNotRenderHeader = 1;
-        $this->Music->setLimit(3);
+        $limit = 6;
+        $this->Music->setLimit($limit);
         $this->Music->setPage($page);
         $musics = $this->Music->search();
         $total = $this->Music->totalPages();
@@ -20,6 +30,7 @@ class MusicController extends VanillaController {
         $this->set('musics', $musics);
         $this->set('total', $total);
         $this->set('curr_page', $page);
+        $this->set('limit', $limit);
         // echo "<pre>";
         // var_dump($musics);
         // echo "</pre>";
@@ -43,6 +54,8 @@ class MusicController extends VanillaController {
             $this->set('musics', $musics);
             $this->set('cateId', $music['Category']['id']);
             $this->set('title', $music['Category']['name']);
+            $comments = $this->Music->custom("SELECT * FROM comment, user WHERE comment.user_id = user.id AND comment.music_id = $musicId");
+            $this->set('comments', $comments);
         }else{
             $music = $this->Music->search();
             // echo "<pre>";
@@ -75,7 +88,7 @@ class MusicController extends VanillaController {
         $singer = $_POST['singer']??'';
         $source = $_POST['source']??'';
         $category_id = $_POST['category_id']??'';
-        $title = $_POST['title']!=''?$_POST['title']:'Lời bài hát hiện chưa được cập nhật!';
+        $title = $_POST['title']??'Lời bài hát hiện chưa được cập nhật!';
         // var_dump($name, $artist, $singer, $source, $category_id, $title);
         if(isset($_POST['submit'])){
             $rs = $this->Music->custom("INSERT INTO music VALUES (null, '$name', '$artist', '$source', '$title', '$singer', '$category_id')");
@@ -86,10 +99,6 @@ class MusicController extends VanillaController {
             }
             $this->set('notification', $notification);
         }
-    }
-
-    function listfavorite($id = null){
-        
     }
 
 	function afterAction() {

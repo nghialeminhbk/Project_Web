@@ -22,20 +22,25 @@ class CategoryController extends VanillaController {
     function view($cateId = null, $nameCate = null, $page = 1){
         $this->doNotRenderHeader = 1;
         $title = $nameCate;
+        $cateId = $cateId;
         if(isset($cateId)){
-            $this->Category->showHasMany();
+            $limit = 6;
+            $offset = ($page-1)*$limit;
+            $musics = $this->Category->custom("SELECT * FROM music WHERE Music.category_id = $cateId
+                                               LIMIT $limit OFFSET $offset");
             $this->Category->id = $cateId;
-            $this->Category->setLimit(3);
-            $this->Category->setPage($page);
-            $musics = $this->Category->search();
-            $total = $this->Category->totalPages();
+            $this->Category->showHasMany();
+            $all = $this->Category->search();
+            $total = ceil(count($all['Music'])/$limit);
             // echo "<pre>";
-            // var_dump($musics);
+            // var_dump($all, $total);
             // echo "</pre>";
-            $this->set('musics', $musics['Music']);
+            $this->set('cateId', $cateId);
+            $this->set('musics', $musics);
             $this->set('title', $title);
             $this->set('total', $total);
             $this->set('curr_page', $page);
+            $this->set('limit', $limit);
         }
     }
 

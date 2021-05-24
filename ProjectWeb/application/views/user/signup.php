@@ -7,7 +7,7 @@
                 <table>
                     <tr>
                         <td>Email đăng kí</td>
-                        <td><input type="text" placeholder="Email bạn sử dụng để đăng kí ... " id="email" id="email" required></td>
+                        <td><input type="text" placeholder="Email bạn sử dụng để đăng kí ... " onchange="checkEmail(this.value)" id="email" name="email" required></td>
                     </tr>
                     <tr>
                         <td>Tên đăng nhập</td>

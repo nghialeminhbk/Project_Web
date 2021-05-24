@@ -95,9 +95,12 @@
         }
     </script>
     <script>
+       <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkEmail.js');?>
        <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkTK.js');?>
        <?php include(ROOT.DS.'public'.DS.'js'.DS.'addListFav.js');?>
        <?php include(ROOT.DS.'public'.DS.'js'.DS.'delMusicFromFav.js');?>
+       <?php include(ROOT.DS.'public'.DS.'js'.DS.'postcomment.js');?>
+       <?php include(ROOT.DS.'public'.DS.'js'.DS.'delcomment.js');?>
     </script>
 </body>
 </html>

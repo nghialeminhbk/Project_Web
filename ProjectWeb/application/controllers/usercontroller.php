@@ -9,6 +9,13 @@ class UserController extends VanillaController {
             $this->User->where('username', $user);
             $rs = $this->User->search();
             $this->userId = $rs[0]['User']['id'];
+            $this->User->id = $this->userId;
+            $this->User->showHMABTM();      
+            $musics = $this->User->search();
+            $_SESSION['favorite'] = array_column(array_column($musics['Music'], 'Music'), 'id');
+            // echo "<pre>";
+            // var_dump(array_search('11', $_SESSION['favorite']));
+            // echo "</pre>";
         }
 	}
 
@@ -85,14 +92,37 @@ class UserController extends VanillaController {
         $this->doNotRenderHeader = 1;
         $rs = $this->User->custom("INSERT INTO music_user VALUES (null, '$idMusic', '$this->userId')");
     }
+    
+    function comment($musicId = null){
+        $this->doNotRenderHeader = 1;
+        $musicId = $musicId;
+        $comments = $this->User->custom("SELECT * FROM comment, user WHERE comment.user_id = user.id AND comment.music_id = $musicId");
+        $this->set('comments', $comments);
+        $this->set('musicId', $musicId);
+
+        // echo "<pre>";
+        // var_dump($comments);
+        // echo "</pre>";
+    }
+
+    function addcomment($idMusic = null, $content = null){
+        $this->doNotRenderHeader = 1;
+        $date = date("l d-m-Y h:i:s A");
+        $rs = $this->User->custom("INSERT INTO comment VALUES (null, '$this->userId', '$idMusic', '$content', '$date')");
+        echo $rs[0];
+    }
+
+    function delcomment($idMusic = null, $timmer = null){
+        $this->doNotRenderHeader = 1;
+        $rs = $this->User->custom("DELETE FROM comment WHERE user_id = $this->userId AND music_id = $idMusic AND create_date = '$timmer'");
+        echo $rs[0];
+    }
 
     function logout(){
         $this->doNotRenderHeader = 1;
         session_destroy();
         header("location: http://localhost:8080/ProjectWeb/home");
     }
-
-
 
     function afterAction() {
 

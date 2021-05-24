@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="right-music">
-                    <i onclick="delFromFav(<?=$music['Music']['id']?>, <?=$userId?>)" class="fas fa-trash-alt"></i>
+                    <i onclick="delFromFav(<?=$music['Music']['id']?>)" class="fas fa-trash-alt"></i>
                 </div>
             </div>
         <?php endforeach?>
