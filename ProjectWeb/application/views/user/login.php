@@ -1,28 +1,28 @@
 <div id="main">
     <div class="container signup-container">
         <div id="left-signup">
-            <h2>Đăng nhập</h2>
+            <h2 class="text--style">Đăng nhập</h2>
             <div class="body-form">
                 <form action="http://localhost:8080/ProjectWeb/user/login" method="POST">
-                <table>
+                <table style="width:100%;">
                     <tr>
-                        <td>Tên đăng nhập</td>
-                        <td><input type="text" placeholder="Tên đăng nhập ... " name="username" id="username" required></td>
+                        <!-- <td style="width: 50%;">Tên đăng nhập</td> -->
+                        <td><input type="text" placeholder="Tên đăng nhập ... " name="username" id="username" class="login__user" required></td>
                     </tr>
                     <tr>
-                        <td>Mật khẩu</td>
-                        <td><input type="password" placeholder="Mật khẩu ..." id="password" name="password" required></td>
+                        <!-- <td style="width: 50%;">Mật khẩu</td> -->
+                        <td><input type="password" placeholder="Mật khẩu ..." id="password" class="login__password" name="password" required></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td colspan = '2'>Hoặc đăng nhập với</td>
                     </tr>
                     <tr>
                         <td colspan = '2'>gg fb</td>
-                    </tr>
+                    </tr> -->
                 </table>
                 <div>
-                    <input class="button" name="submit" type="submit" value="Đăng nhập">
-                    <a href="http://localhost:8080/ProjectWeb/user/signup" class="button">Đăng ký</a>
+                    <input name="submit" type="submit" value="Đăng nhập" class="login__btndangnhap">
+                    <a href="http://localhost:8080/ProjectWeb/user/signup" class="button login__btndangky">Đăng ký</a>
                 </div>
                 </form>
                 <div id="notification">
@@ -35,9 +35,9 @@
             </div>
         </div>
         <div id="right-signup">
-            <h2>Hướng dẫn</h2>
+            <h2 class="text--style">Hướng dẫn</h2>
             <div class="body-form">
-                <p>Xàm le</p>
+                <p class="login__desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam natus quod fuga dolorem veritatis illum modi reprehenderit provident totam id itaque libero officiis velit ex enim odit ipsum, tempora quas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore commodi nam, maxime ex laudantium earum sunt hic eius! Quis non quidem alias, commodi fuga eaque voluptatum nostrum rem itaque aut. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, nesciunt voluptatum nemo pariatur dolore reiciendis quaerat qui, laudantium at hic explicabo! Sed neque ipsum deserunt? Dolor molestiae fugiat aperiam provident.</p>
             </div>
         </div>
     </div>

@@ -22,17 +22,24 @@
         <?php $count = 1;?> 
         <h2><?=$title?></h2>
             <div id="list-music">
-                <?php foreach($musics as $music):?>
+                <?php foreach($musics as $_music):?>
                     <div class="music-group">
                         <div class="left-music">
                             <p class="sttMusic"><?=$count++?>.</p>
                             <div class="des-music">
-                                <p class="name"> <a onclick="load('http://localhost:8080/ProjectWeb/music/view/<?=$music['Music']['id']?>', 'main'), load('http://localhost:8080/ProjectWeb/category/view/1/2', 'right-page-music')"><?=$music['Music']['name']?></a></p>
-                                <p class="singer"><?=$music['Music']['singer']?></p>
+                                <p class="name"> <a onclick="load('http://localhost:8080/ProjectWeb/music/view/<?=$_music['Music']['id']?>', 'main'), load('http://localhost:8080/ProjectWeb/category/view/1/2', 'right-page-music')"><?=$_music['Music']['name']?></a></p>
+                                <p class="singer"><?=$_music['Music']['singer']?></p>
                             </div>
                         </div>
                         <div class="right-music">
-                            <i class="far fa-heart"></i>
+                            <?php if(!isset($_SESSION['user'])){?>
+                                <i class="far fa-heart"></i>
+                            <?php }else{?>
+                            <?php if(array_search($_music['Music']['id'], $_SESSION['favorite']) !== false){?>
+                                    <i id="<?=$_music['Music']['id']?>" onclick="delFromFav(<?=$_music['Music']['id']?>, <?=$curr_page?>)" class="fas fa-heart"></i>
+                            <?php }else{?>
+                                    <i id="<?=$_music['Music']['id']?>" onclick="addListFav(<?=$_music['Music']['id']?>, <?=$curr_page?>)" class="far fa-heart"></i>
+                            <?php }}?>
                         </div>
                     </div>
                 <?php endforeach?>

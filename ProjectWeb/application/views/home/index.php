@@ -7,7 +7,7 @@
     </div>
     <div id="main-home">
         <div id="left-main">
-            <div id="quote">
+            <!-- <div id="quote">
                 <p ></p>
             </div>
             <?php if(isset($_SESSION['user'])){ ?>
@@ -17,13 +17,13 @@
                 <a href="http://localhost:8080/ProjectWeb/user/login">Đăng nhập</a>
                 <a href="http://localhost:8080/ProjectWeb/user/signup">Đăng kí</a>
             </div>
-            <?php }?>
+            <?php }?> -->
         </div>
         <div id="center-main" >
            
         </div>
         <div id="right-main">
-            <!-- <img src="" alt=""> -->
+            <img src="https://images.unsplash.com/photo-1468141589425-dcddef77ddad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="" class="right-main__img">
         </div>
     </div>
 </div>

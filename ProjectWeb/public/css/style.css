@@ -3,7 +3,10 @@
 html, header, body, p, ol, ul, hr{
     padding: 0;
     margin: 0;
-    font-family: Arial;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    position: relative;
 }
 h2{
     font-size: 20px;
@@ -18,34 +21,42 @@ a:visited{
     color: white;
 }
 a:hover{
-    color:  rgb(255, 165, 0);
+    color:  #ACE7F2;
 }
 ol{
     list-style: none;
 }
 i{
-    color: red;
+    color: #90E0EF;
     cursor: pointer;
 }
 i:hover{
-    transform: scale(1.2);
-}
-#main{
-    background: #f6dcbf;
-    margin-top: 50px;
+    color:  #ACE7F2;
 }
 
-.body-form{
+#main{
     background: white;
-    box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
+    margin-top: 50px;
+    /* height: 85vh; */
+}
+
+
+.body-form{
+    background: #CAF0F8;
+    box-shadow: 2px 2px 5px 2px #00B4D8;
     padding: 10px;
+    height: 80%;
+    text-align: center;
 }
 
 .container{
     margin: 0 auto;
     width: 60%;
     padding: 20px 0;
+    height: 90%;
 }
+
+
 /* header  */
 header{
     height: 50px;
@@ -53,9 +64,30 @@ header{
     top: 0;
     width: 100%;
 }
-
+.header__li--hover:hover{
+    background-color: #48CAE4;
+}
+.fa-headphones-alt{
+    color: white;
+}
+.viewSearch__input{
+    border: 0px solid white;
+    border-radius: 1rem 0 0 1rem;
+    padding-left: 1rem;
+}
+.div-iconsearch{
+    border: 1px solid white;
+}
+.viewIconSearch{
+    color: #90E0EF;
+}
+input{
+    border-radius: 0;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
 .top_page{
-    background: #e1701a;
+    background: #48CAE4;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -65,11 +97,12 @@ header{
     color: white;
 }
 
+
 .leftHeader, .rightHeader{
     width: 50%;
 }
 /* right header  */
-#iconMenu, #searchMusic, #menu{
+#iconMenu, #searchMusic{
     display: none;
 }
 
@@ -97,11 +130,11 @@ header{
     position: absolute;
     display: none;
     flex-direction: column;
-    margin-top: 18px;
+    margin-top: 14px;
     margin-left: -30px;
     box-sizing: content-box;
     min-width: 80px;
-    background: #e1701a;
+    background: #90E0EF;
     color: white;
 }
 
@@ -164,7 +197,7 @@ header{
     padding: 12px 15px;
 }
 #searchHomePage{
-    height: 25px;
+    height: 30px;
     width: 80%;
 }
 .viewSearch{
@@ -175,7 +208,7 @@ header{
     position: relative;
 }
 #iconSearch{
-    color: orange;
+    color: #90E0EF;
     border: none;
 }
 #searchMusic{
@@ -203,25 +236,30 @@ header{
     padding: 0;
 }
 .div-iconsearch{
-    height: 23px;
+    height: 28px;
     background: white;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0 5px;
+    border-radius: 0 1rem 1rem 0;
 }
 /* main-home */
 /* banner */
 #banner{
-    background-image: url(/ProjectWeb/public/img/bts.jpg);
+    background-image: url(https://images.unsplash.com/photo-1612205625197-3ac48e5a572c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
     height: 100vh;
-    background-position: center;
+    background-position: right;
     background-size: cover;
+    /* opacity: 0.8; */
 }
 #description{
-    padding-top: 170px;
+    color: #03045E;
+    padding-top: 5%;
     padding-left: 55%;
     padding-right: 30px;
+    font-size: 1.5rem;
+    display: none;
 }
 
 #description p{
@@ -229,22 +267,25 @@ header{
 }
 /* main-home */
 #main-home{
-    padding: 0 10px;
     display: grid;
-    grid-template-columns: 0.75fr 1fr 1fr;
+    grid-template-columns:0 2fr 1fr;
     grid-column-gap: 10px;
-    background: #f6dcbf;
+    background: white;
+    height: 55rem;
 }
 #left-main, #center-main, #right-main{
     height: 100vh;
 }
 /* center-main  */
-
 #list-music{
     background: white;
     box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
     padding: 10px 30px;
     border: none;
+    height: 97.2%;
+}
+.list__tiltle{
+    color: #0077B6;
 }
 
 #pagination{
@@ -296,17 +337,28 @@ header{
     color: black;
 }
 /* right-main  */
-
+#right-main{
+    padding: 0rem 1rem 1rem 1rem;
+}
+.right-main__img{
+    margin-top: 4rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /* footer  */
 
 footer{
-    background: #f7a440; 
+    background: #00B4D8; 
     height: 60px;
     display: flex;
     justify-content: space-between;
     color: white;
     padding: 0px 10px;
     font-size: 12px;
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
 }
 
 #left-footer{
@@ -322,9 +374,11 @@ footer{
     transition: all 0.3s;
 }
 
-#left-footer i:hover{
-    color: #e1701a;
+#left-footer i:hover {
+    color:  #ACE7F2;
 }
+
+
 #right-footer{
     display: flex;
     flex-direction: column;
@@ -408,24 +462,81 @@ iframe{
 #content-comment{
     margin-top: 20px;
 }
-
 /* sign up, login  */
 .signup-container{
     display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    grid-gap: 10px;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 2rem;
 }
+.login__user, .login__password{
+    width: 70%;
+    height: 3rem;
+    margin-top: 2rem;
+    border: 0 solid white;
+    border-radius: 1rem;
+    padding-left: 1rem;
+}
+.login__user{
+    margin-top: 5rem;
+}
+.login__password{
+    margin-bottom: 4rem;
+}
+.login__password--b{
+    margin-bottom: 0;
 
+}
+.login__password--bless{
+    margin-bottom: 2rem;
+
+}
+.login__btndangky{
+    margin-left: 2.5rem;
+}
+.login__btndangnhap, .login__btndangky{
+    color: white;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: 0 solid white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #90E0EF;
+}
+.login__btndangky{
+    padding: 1.05rem 2.5rem;
+    display: inline-block;
+}
+.login__btndangky:hover{
+    color: white;
+}
+.login__btndangnhap, .login__btndangky{
+    box-shadow: 0 5px 0 0 #49848f;
+}
+.login__btndangnhap:hover{
+    transform: translateY(2.5px);
+    box-shadow: 0 2.5px 0 0 #49848f;
+    cursor: pointer;
+}
+.login__btndangky:hover{
+    transform: translateY(2.5px);
+    box-shadow: 0 2.5px 0 0 #49848f;
+}
+.login__desc{
+    text-align: justify;
+    color: #555;
+}
 .signup-container h2{
     margin: 0;
     padding: 0px 0 10px 0px;
 }
-
+.text--style{
+    color: #bbb;
+}
+.notification{
+    margin-top: 2rem;
+    color: #aaa;
+}
+#left-signup, #right-signup{
+    height: 80vh;
+}
 /* post-music  */
-
-
-
-
-
-
-
