@@ -19,7 +19,7 @@
         <?php endforeach?>
         <?php }else{ ?>
             <div class="music-group">
-                <p>Hiện không có bài hát nào trong danh sách ...</p>
+                <p class="text--hd">Hiện không có bài hát nào trong danh sách ...</p>
             </div>
         <?php }?>
     </div>

@@ -26,8 +26,8 @@
             <a href="http://localhost:8080/ProjectWeb/home" id="logo" class="viewLogo"><i class="fas fa-headphones-alt"></i> ENCHANTIX</a>
             <div id="viewSearchID" class="viewSearch">
                 <input type="search" id="searchHomePage" class="viewSearch__input" placeholder="Tìm theo bài hát hoặc ca sĩ" autocomplete="off" onkeyup="search(this.value)" onchange="reset(this.value)">
-                <!-- <ol id="searchMusic">
-                </ol> -->
+                <ol id="searchMusic">
+                </ol>
                 <div class="div-iconsearch">
                     <i class="viewIconSearch iconHeader fa fa-search" id="iconSearch" onclick="viewSearchHeader()"></i>
                 </div>
@@ -39,9 +39,9 @@
             <div class="accountID">
                 <p id="nameDisplay"><?=$_SESSION['user']?></p>
                 <ol class="account">
-                    <li class="yeuThichID" onclick="load('http://localhost:8080/ProjectWeb/user/favorite', 'main')">Danh sách yêu thích</a></li>
+                    <li class="yeuThichID signout__item--hover" onclick="load('http://localhost:8080/ProjectWeb/user/favorite', 'main')">Danh sách yêu thích</a></li>
                     <hr>
-                    <li class="signoutID"> <a href="http://localhost:8080/ProjectWeb/user/logout">Đăng xuất</a></li>
+                    <li class="signoutID signout__item--hover"> <a href="http://localhost:8080/ProjectWeb/user/logout" class="signout__link ">Đăng xuất</a></li>
                 </ol>
             </div>
         <?php }else{ ?>

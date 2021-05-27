@@ -14,28 +14,8 @@
         </div>
     </div>
 </footer>
-<script>
-    // function visible(element){
-    //     var e = document.getElementById(element);
-    //     e.setAttribute('style', "display: flex");
-    // }
-    // function unvisible(element){
-    //     var e = document.getElementById(element);
-    //     e.setAttribute('style', "display: none");
-    // }
-</script>
 <script>   
-        function load(url, element){
-            var xmlhttp = new XMLHttpRequest();
-            var e = document.getElementById(element);
-            xmlhttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
-                    e.innerHTML = this.responseText;
-                }
-            }   
-            xmlhttp.open("GET",url, true);
-            xmlhttp.send();
-        }
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'load.js');?>
         const searchbar = document.getElementById('searchHomePage');
 
         function disvisible(){
@@ -52,55 +32,14 @@
             }
         }
 
-        function sendData(url, data = []){
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
-                    alert("Thêm thành công !");
-                }
-            }
-            var urlSend = url;
-            for(var i=0; i<data.length; i++){
-                urlSend += '/' + data[i];
-            }
-            xmlhttp.open("GET",urlSend, true);
-            xmlhttp.send();
-        }
-
-        function anoun(){
-            alert('hello');
-        }
-    </script>
-    <script>
-        function search(search){
-            setTimeout(() => {
-                console.log(search);
-                if(search == ""){
-                    document.getElementById('searchMusic').setAttribute('style','display: none');
-                    return;
-                }else{
-                    document.getElementById('searchMusic').setAttribute('style','display: flex');
-                    var xmlhttp = new XMLHttpRequest();
-                    var url = 'http://localhost:8080/ProjectWeb/music/search/'+search;
-                    xmlhttp.onreadystatechange = function(){
-                        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                            load(url, 'searchMusic');
-                        }
-                    }
-                    xmlhttp.open("GET", url, true);
-                    xmlhttp.send();
-                    return;
-                }
-            }, 300);
-        }
-    </script>
-    <script>
-       <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkEmail.js');?>
-       <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkTK.js');?>
-       <?php include(ROOT.DS.'public'.DS.'js'.DS.'addListFav.js');?>
-       <?php include(ROOT.DS.'public'.DS.'js'.DS.'delMusicFromFav.js');?>
-       <?php include(ROOT.DS.'public'.DS.'js'.DS.'postcomment.js');?>
-       <?php include(ROOT.DS.'public'.DS.'js'.DS.'delcomment.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'senddata.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'search.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkEmail.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'checkTK.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'addListFav.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'delMusicFromFav.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'postcomment.js');?>
+        <?php include(ROOT.DS.'public'.DS.'js'.DS.'delcomment.js');?>
     </script>
 </body>
 </html>

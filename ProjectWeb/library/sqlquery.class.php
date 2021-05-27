@@ -79,9 +79,6 @@ class SQLQuery {
 	}
 
 	function search() {
-
-		global $inflect;
-
 		$from = ' '.$this->_table.'  as  '.$this->_model.'  ';
 		// var_dump($from);
 		$conditions = '\'1\'=\'1\' AND ';
@@ -149,7 +146,7 @@ class SQLQuery {
 						$fromChild = '';
 
 						$tableChild = strtolower($modelChild);
-						$pluralAliasChild = strtolower($inflect->pluralize($aliasChild));
+						$pluralAliasChild = strtolower($aliasChild);
 						$singularAliasChild = strtolower($aliasChild);
 
 						$fromChild .= ' '.$tableChild.'  as  '.$aliasChild.' ';
@@ -265,8 +262,6 @@ class SQLQuery {
     /** Custom SQL Query **/
 	function custom($query) {
 
-		global $inflect;
-
 		$this->_result = mysqli_query($this->_dbHandle, $query);
 
 		$result = array();
@@ -339,43 +334,6 @@ class SQLQuery {
 		
 	}
 
-    /** Saves an Object i.e. Updates/Inserts Query **/
-
-	function save() {
-		$query = '';
-		if (isset($this->id)) {
-			$updates = '';
-			foreach ($this->_describe as $field) {
-				if ($this->$field) {
-					$updates .= ' '.$field.'  = \''.mysqli_real_escape_string($this->_dbHandle, $this->$field).'\',';
-				}
-			}
-
-			$updates = substr($updates,0,-1);
-
-			$query = 'UPDATE '.$this->_table.' SET '.$updates.' WHERE  id =\''.mysqli_real_escape_string($this->_dbHandle, $this->id).'\'';			
-		} else {
-			$fields = '';
-			$values = '';
-			foreach ($this->_describe as $field) {
-				if ($this->$field) {
-					$fields .= ' '.$field.' ,';
-					$values .= '\''.mysqli_real_escape_string($this->_dbHandle, $this->$field).'\',';
-				}
-			}
-			$values = substr($values,0,-1);
-			$fields = substr($fields,0,-1);
-
-			$query = 'INSERT INTO '.$this->_table.' ('.$fields.') VALUES ('.$values.')';
-		}
-		$this->_result = mysqli_query($this->_dbHandle, $query);
-		$this->clear();
-		if ($this->_result == 0) {
-            /** Error Generation **/
-			return -1;
-        }
-	}
- 
 	/** Clear All Variables **/
 
 	function clear() {

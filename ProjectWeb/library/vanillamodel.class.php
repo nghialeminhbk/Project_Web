@@ -4,8 +4,6 @@ class VanillaModel extends SQLQuery {
 
 	function __construct() {
 		
-		global $inflect;
-
 		$this->connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		$this->_limit = PAGINATE_LIMIT;
 		$this->_model = get_class($this);

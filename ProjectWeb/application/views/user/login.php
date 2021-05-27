@@ -4,7 +4,7 @@
             <h2 class="text--style">Đăng nhập</h2>
             <div class="body-form">
                 <form action="http://localhost:8080/ProjectWeb/user/login" method="POST">
-                <table style="width:100%;">
+                <table class="table--size">
                     <tr>
                         <!-- <td style="width: 50%;">Tên đăng nhập</td> -->
                         <td><input type="text" placeholder="Tên đăng nhập ... " name="username" id="username" class="login__user" required></td>
@@ -25,7 +25,7 @@
                     <a href="http://localhost:8080/ProjectWeb/user/signup" class="button login__btndangky">Đăng ký</a>
                 </div>
                 </form>
-                <div id="notification">
+                <div id="notification" class="notification">
                     <?php
                         if(isset($notification)){
                             echo $notification;
@@ -37,7 +37,17 @@
         <div id="right-signup">
             <h2 class="text--style">Hướng dẫn</h2>
             <div class="body-form">
-                <p class="login__desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam natus quod fuga dolorem veritatis illum modi reprehenderit provident totam id itaque libero officiis velit ex enim odit ipsum, tempora quas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore commodi nam, maxime ex laudantium earum sunt hic eius! Quis non quidem alias, commodi fuga eaque voluptatum nostrum rem itaque aut. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, nesciunt voluptatum nemo pariatur dolore reiciendis quaerat qui, laudantium at hic explicabo! Sed neque ipsum deserunt? Dolor molestiae fugiat aperiam provident.</p>
+            <p class="text--hd">
+                    <strong>Đăng nhập và đăng kí để có thể trải nghiệm ...</strong>
+                    <br>
+                    - Nghe các bài hát yêu thích
+                    <br>
+                    - Tạo playlist nhạc cá nhân theo cá tính mỗi người
+                    <br>
+                    - Theo dõi, bình luận bài hát cùng mọi người
+                    <br>
+                    <em>Thao tác đúng để quá trình đăng nhập, đăng kí trở nên dễ dàng hơn!</em>
+                </p>
             </div>
         </div>
     </div>

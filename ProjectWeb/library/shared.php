@@ -159,7 +159,6 @@ gzipOutput() || ob_start("ob_gzhandler");
 
 
 $cache = new Cache();
-$inflect = new Inflection();
 
 setReporting();
 removeMagicQuotes();

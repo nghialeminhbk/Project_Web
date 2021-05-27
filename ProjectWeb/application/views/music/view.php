@@ -5,7 +5,7 @@
                 <p class="name"><?=$music['Music']['name']?></p>
                 <p class="singer"><?=$music['Music']['singer']?></p>
             </div>
-            <iframe src="<?=BASE_SOURCE_MUSIC.$music['Music']['source']?>" width="620px" height="320px" frameborder="0" allowfullscreen=""  allow='autoplay'></iframe>
+            <iframe src="<?=BASE_SOURCE_MUSIC.$music['Music']['source']?>"  height="320px" width="100%" frameborder="0" allowfullscreen=""  allow='autoplay'></iframe>
         </div>
         <div class="inforDetailMusic">
             <div class="inforMusic">
@@ -45,7 +45,7 @@
                 <?php endforeach?>
             </div>
         </div>
-        <div class="comment body-form">
+        <div class="comment">
             <strong>Bình luận</strong>
             <br><hr>
             <div class="post-comment">
@@ -56,10 +56,10 @@
                 <?php }else{?>
                     <div>
                         <div class="form-comment">
-                            <p class="name"><?=$_SESSION['user']?></p>
-                            <textarea id="comment" type="text" name="comment" placeholder="Bình luận công khai..." required></textarea>
+                            <p class="name formcmt__name"><?=$_SESSION['user']?></p>
+                            <textarea id="comment" type="text" name="comment" placeholder="Bình luận công khai..." required class="comment__text"></textarea>
                         </div>
-                        <button class="button" onclick="postComment(document.getElementById('comment').value, <?=$music['Music']['id']?>)" >Bình luận</button>
+                        <button class="button comment__btn" onclick="postComment(document.getElementById('comment').value, <?=$music['Music']['id']?>)" >Bình luận</button>
                     </div>
                 <?php }?>
                 <div id="content-comment">

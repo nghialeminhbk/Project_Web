@@ -11,7 +11,6 @@ class VanillaController {
 
 	function __construct($controller, $action) {
 		
-		global $inflect;
 
 		$this->_controller = ucfirst($controller);
 		$this->_action = $action;

@@ -33,6 +33,9 @@ i{
 i:hover{
     color:  #ACE7F2;
 }
+.table--size{
+    width: 100%;
+}
 
 #main{
     background: white;
@@ -157,21 +160,23 @@ input{
 .accountID{
     padding: 12px 15px;
     cursor: pointer;
+    position: relative;
 }
 .accountID:hover{
-    color: rgb(255, 165, 0);
+    color: #90E0EF;
 }
 .account{
     list-style-type: none;
     position: absolute;
     display: none;
     flex-direction: column;
-    margin-top: 18px;
-    margin-left: -80px;
+    margin-top: 14px;
+    margin-left: -58px;
     box-sizing: content-box;
     min-width: 100px;
-    background: #e1701a;
+    background: #90E0EF;
     color: white;
+    position: absolute;
 }
 
 .account li{
@@ -215,18 +220,18 @@ input{
     position: absolute;
     display: none;
     flex-direction: column;
-    margin-top: 0px;
-    margin-left: 1px;
+    margin-top: 4px;
+    margin-left: 12px;
     /* box-sizing: content-box; */
     top: 38px;
     width: 75%;
     min-width: 80px;
     background: white;
-    box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
+    /* box-shadow: 2px 2px 5px 2px rgb(155, 155, 151); */
     color: #000;
-    /* height: 150px;
-    overflow-y: auto;
-    overflow-x: hidden; */
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 #searchMusic .des-music{
     border-bottom: 1px solid #aaaaaa;
@@ -248,7 +253,7 @@ input{
 /* banner */
 #banner{
     background-image: url(https://images.unsplash.com/photo-1612205625197-3ac48e5a572c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
-    height: 100vh;
+    height: 65vh;
     background-position: right;
     background-size: cover;
     /* opacity: 0.8; */
@@ -271,7 +276,7 @@ input{
     grid-template-columns:0 2fr 1fr;
     grid-column-gap: 10px;
     background: white;
-    height: 55rem;
+    height: auto;
 }
 #left-main, #center-main, #right-main{
     height: 100vh;
@@ -282,7 +287,7 @@ input{
     box-shadow: 2px 2px 5px 2px rgb(155, 155, 151);
     padding: 10px 30px;
     border: none;
-    height: 97.2%;
+    height: auto;
 }
 .list__tiltle{
     color: #0077B6;
@@ -343,7 +348,7 @@ input{
 .right-main__img{
     margin-top: 4rem;
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
 }
 /* footer  */
@@ -430,6 +435,9 @@ iframe{
 .comment{
     margin-top: 50px;
     padding: 10px 20px;
+    height: auto;
+    background: #CAF0F8;
+    box-shadow: 2px 2px 5px 2px #00B4D8;
 }
 
 .form-comment{
@@ -539,4 +547,242 @@ iframe{
 #left-signup, #right-signup{
     height: 80vh;
 }
+
+
+
+
 /* post-music  */
+.form__dangbaihat{
+    height: 75vh;
+}
+.form__box{
+    height: 95%;
+    position: relative;
+}
+.formdk__btn{
+    position: absolute;
+    bottom: 2.8rem;
+    right: 50%;
+    transform: translateX(50%);
+    width: 20%;
+    height: 2rem;
+    color: white;
+    border-radius: 1rem;
+    border: 0 solid white;
+    background-color: #90E0EF;
+    box-shadow: 0 4px 0 0 #49848f;
+    
+}
+.formdk__btn:hover{
+    transform: translate(50% 2px);
+    box-shadow: 0 2px 0 0 #49848f;
+}
+.formdk__item{
+    width: 80%;
+    border: 0 solid white;
+    height: 2rem;
+    border-radius: 1rem;
+    padding-left: 10px;margin-bottom: 0.5rem;
+    
+}
+.formdk__list{
+    width: 35%;
+    border: 0 solid white;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0 10px;
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+.formdk__desc{
+    width: 80%;
+    border: 0 solid white;
+    height: 21vh;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* category favourite */
+
+
+/* account action */
+.signout__link{
+    color: white;
+}
+
+.signout__link:hover{
+    color: white;
+}
+
+.signout__item--hover:hover{
+    color: white;
+    background-color: #00B4D8;
+}
+
+
+
+/* Bình luận */
+.comment__text{
+    border: 0 solid white;
+    height: 2rem;
+    border-radius: 0.5rem;
+    padding: 5px 5px;
+    font-family: 'Poppins', sans-serif;
+    margin: 1rem 0;
+    outline: none;
+    padding-top: 10px;
+}
+.comment__btn{
+    width: 20%;
+    height: 2rem;
+    color: white;
+    border-radius: 1rem;
+    border: 0 solid white;
+    background-color: #90E0EF;
+    box-shadow: 0 4px 0 0 #49848f;
+}
+.comment__btn:hover{
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 0 #49848f;
+}
+.content-comment{
+    text-align: left;
+}
+.formcmt__name{
+    text-align: left;
+}
+
+.text--hd{
+    color: rgb(118, 118, 118);
+    text-align: left;
+}
+
+/* responsive */
+@media screen and (max-width: 1025px){
+    .comment{
+        height: auto;
+        background: #CAF0F8;
+        box-shadow: 2px 2px 5px 2px #00B4D8;
+        padding: 10px;
+    }
+    #page-music{
+        grid-template-columns: 1fr;
+    }
+    footer{
+        width: 100%;
+    }
+    body{
+        height: auto;
+    }
+    #banner{
+        height: 30vh;
+    }
+    #left-main, #center-main, #right-main {
+        height: auto;
+        margin-bottom: 1rem;
+    }
+    .container{
+        width: 90%;
+    }
+    .login__user, .login__password {
+        width: 80%;
+        height: 4rem;
+        margin-top: 2.5rem;
+    }
+    .body-form{
+        height: 50%;
+    }
+}
+@media screen and (max-width: 769px){
+    .left-page-music{
+        margin-top: 3rem;
+    }
+    .body-form{
+        height: 75%;
+    }
+    header{
+        height: 80px;
+        font-size: 14px;
+    }
+    .container{
+        padding: 40px 0;
+    }
+    .signup-container{
+        grid-template-columns: 1fr;
+    }
+    #left-signup, #right-signup{
+        height: 55vh;
+    }
+}
+@media screen and (max-width: 480px){
+
+    .login__btndangnhap{
+        margin-top: 0.5rem;
+    }
+    .body-form{
+        height: 80%;
+    }
+    .login__password{
+        margin-bottom: 0rem;
+    }
+    .login__user, .login__password {
+        width: 90%;
+        margin-top: 1rem;
+    }
+    .login__btndangnhap, .login__btndangky {
+        padding: 0.5rem 1rem;
+    }
+    .login__user{
+        margin-top: 2rem;
+    }
+    .container{
+        padding: 60px 0;
+    }
+    .right-main__img{
+        display: none;
+    }
+    #banner{
+        height: 50vh;
+    }
+    #main-home{
+        grid-template-columns: 1fr;
+    }
+    #left-footer i{
+        font-size: 20px;
+        padding: 3px;
+    }
+    header{
+        height: 100px;
+    }
+    .top_page{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .leftHeader, .rightHeader{
+        width: 100%;
+    }
+    .rightHeader{
+        justify-content: flex-end;
+    }
+    .leftHeader a, .viewSearch {
+        padding: 10px 10px 0 10px;
+    }
+    .accountID, .rightHeader a{
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 379px){
+    .login__password{
+        margin-bottom: 0rem;
+    }
+    .login__btndangnhap{
+        margin-top: 0.5rem;
+    }
+    .body-form{
+        height: 90%;
+    }
+}
