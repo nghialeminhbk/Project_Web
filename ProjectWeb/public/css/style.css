@@ -485,7 +485,7 @@ iframe{
     padding-left: 1rem;
 }
 .login__user{
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 .login__password{
     margin-bottom: 4rem;
@@ -598,7 +598,7 @@ iframe{
 .formdk__desc{
     width: 80%;
     border: 0 solid white;
-    height: 21vh;
+    height: 25vh;
     outline: none;
     border-radius: 0.5rem;
     padding: 1rem;

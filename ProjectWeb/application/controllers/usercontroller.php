@@ -42,7 +42,7 @@ class UserController extends VanillaController {
     function signUp(){
         $this->doNotRenderHeader = 0;
         $username = $_POST['username']??'';
-        $password = $_POST['password']??'';
+        $password = $_POST['password']??''; 
         $email = $_POST['email']??'';
         if(isset($_POST['submit'])){
             $rs = $this->User->custom("INSERT INTO user VALUES (null, '$username', '$password', '$email')");
